@@ -1,6 +1,4 @@
-use std::fs;
-
-fn main() {
+pub fn run() {
     #[derive(Default)]
     struct Play {
         char: char,
@@ -38,8 +36,7 @@ fn main() {
 
     let mut total_score = 0;
 
-    fs::read_to_string("./src/input.txt")
-        .expect("Should open text file")
+    include_str!("./inputs/day02.txt")
         .split("\n")
         .for_each(|f| {
             let mut play = f.split(" ");
@@ -68,7 +65,7 @@ fn main() {
             //     _ => counter_play = counter_play
             // }
 
-            // Part 2 
+            // Part 2
             match counter {
                 'X' => {
                     if first_play.char == rock.char {
